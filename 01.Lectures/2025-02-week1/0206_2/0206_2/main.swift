@@ -1,11 +1,11 @@
-//
-//  main.swift
-//  0206_2
-//
-//  Created by Uihyun.Lee on 2/6/25.
-//
-
 import Foundation
 
-print("Hello, World!")
+
+// 객체 배열 생성
+let shapes: [Shape] = [Circle(), Rectangle()]
+
+//배열 반복 출력
+for shape in shapes {
+    shape.draw()
+}
 
