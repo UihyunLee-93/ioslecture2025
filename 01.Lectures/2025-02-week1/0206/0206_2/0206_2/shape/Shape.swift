@@ -7,10 +7,6 @@ class Shape {
     }
 }
 
-class ShapeView{
-    
-}
-
 // 자식 클래스 원
 class Circle: Shape {
     override func draw() {
