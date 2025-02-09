@@ -3,6 +3,18 @@ import Foundation
 class PhoneBookManager {
     private var phoneBook: [String: ContactInfo] = [:]
 
+    func run() {
+        while true {
+            menu()
+            print("번호를 선택하세요:", terminator: " ")
+            
+            if let choice = readLine(), let option = Int(choice) {
+                menuSelection(option)
+            } else {
+                print(" 잘못된 입력입니다. 숫자를 입력하세요.")
+            }
+        }
+    }
     func menu() {
         print("\n:::::::::::: 전화번호부 :::::::::::::")
         print("1) 추가  2) 출력  3) 검색  4) 수정  5) 삭제  6) 종료")
@@ -44,7 +56,7 @@ class PhoneBookManager {
             print(" 전화번호부가 비어있습니다.")
         } else {
             for contact in phoneBook.values.sorted(by: { $0.name < $1.name }) {
-                contact.diplayContactInfo()
+                contact.printContactInfo()
             }
         }
     }
@@ -52,7 +64,7 @@ class PhoneBookManager {
     func search() {
         print("검색할 이름을 입력하세요:", terminator: " ")
         if let name = readLine(), let contact = phoneBook[name] {
-            contact.diplayContactInfo()
+            contact.printContactInfo()
         } else {
             print("해당 이름이 등록되어 있지 않습니다.")
         }

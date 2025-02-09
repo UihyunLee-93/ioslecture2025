@@ -6,7 +6,7 @@ class ContactInfo {
         self.name = name
         self.phoneNumber = phoneNumber
     }
-    func diplayContactInfo() {
+    func printContactInfo() {
         print("이름 : \(name)\n전화번호 : \(phoneNumber)")
     }
 }
