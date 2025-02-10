@@ -1,73 +1,112 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var words: [String] = ["사과","딸기","바나나"]   // 단어를 저장할 배열
-    @State private var newWord: String = ""  // 새로 입력할 단어
-    @State private var wordToDelete: String = "" // 삭제할 단어
-    @State private var message: String = "단어를 추가 하세요"  // 상태 메시지
+    @State private var words: [String] = ["사과","딸기","바나나"] // 단어 배열
+    @State private var newWord: String = ""           // 새 단어 입력
+    @State private var wordToDelete: String = ""      // 삭제할 단어 입력
+    @State private var searchWord: String = ""        // 검색할 단어 입력
+    @State private var message: String = ""           // 상태 메시지
 
-    func addWord() {
-        print("추가 버튼 누름", newWord)
-        // words는 State이므로 상태 값이 변경 되면 자동 재 랜더링.
-        words.append(newWord)
-        newWord = ""
-        message = "새 단어가 추가되었습니다."
-    }
-    
-    func removeWord() {
-        print("삭제 버튼 누름", wordToDelete)
-        // 입력 된 단어와 일치하는 단어를 words에서 찾기: firstIndex(of: )
-        // 목록에서 해당 단어 삭제: remove()
-        if let index = words.firstIndex(of: wordToDelete) {
-            words.remove(at: index)
-            wordToDelete = ""
-            message = "단어 목록에서 \(wordToDelete)를 삭제 했습니다."
-        } else {
-            message = "단어 목록에 \(wordToDelete)는 없습니다."
-        }
-    }
-    
     var body: some View {
-        
         VStack {
-            Text ("단어 관리 프로그램")
+            Text("Array 관리 프로그램")
                 .font(.largeTitle)
                 .padding()
+
+            // 현재 단어 수 표시
+            Text("현재 단어 수: \(words.count)개")
+                .font(.subheadline)
+                .padding(.bottom)
+
+            // 단어 추가 섹션
             HStack {
                 TextField("단어 입력", text: $newWord)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
                 Button("추가") {
                     addWord()
                 }
+                .padding(.horizontal)
             }
-            .padding()
-            
-            List (words, id: \.self) { word in
+
+            // 단어 목록 표시
+            List(words, id: \.self) { word in
                 Text(word)
+                    .transition(.opacity) // 애니메이션 효과 적용
             }
-            .padding()
-            
+
+            // 단어 삭제 섹션
             HStack {
-                TextField("단어 삭제", text: $wordToDelete)
+                TextField("삭제할 단어 입력", text: $wordToDelete)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
                 Button("삭제") {
-                    removeWord()
+                    deleteWord()
                 }
+                .padding(.horizontal)
             }
-            .padding()
-            
+
+            // 단어 검색 섹션
+            HStack {
+                TextField("검색할 단어 입력", text: $searchWord)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                Button("검색") {
+                    searchWordInArray()
+                }
+                .padding(.horizontal)
+            }
+
+            // 상태 메시지 표시
             Text(message)
-                .foregroundStyle(.red)
+                .foregroundColor(.red)
                 .padding()
-        } // end VStack
+        }
         .padding()
+        .animation(.easeInOut, value: words) // 단어 목록 변경 시 애니메이션 적용
+    }
+
+    // 단어 추가 함수
+    func addWord() {
+        if newWord.isEmpty {
+            message = "단어를 입력하세요."
+        } else if words.contains(newWord) {
+            message = "이미 존재하는 단어입니다."
+        } else {
+            words.append(newWord)
+            newWord = ""
+            message = "단어가 추가되었습니다."
+        }
+    }
+
+    // 단어 삭제 함수
+    func deleteWord() {
+        if let index = words.firstIndex(of: wordToDelete) {
+            words.remove(at: index)
+            wordToDelete = ""
+            message = "'\(wordToDelete)'을(를) 삭제했습니다."
+        } else {
+            message = "해당 단어가 목록에 없습니다."
+        }
+    }
+
+    // 단어 검색 함수
+    func searchWordInArray() {
+        if let index = words.firstIndex(of: searchWord) {
+            message = "\(searchWord)은 배열의 \(index + 1)번째 위치에 있습니다."
+        } else {
+            message = "해당 단어가 목록에 없습니다."
+        }
     }
 }
 
-struct ArrayManagerView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
+//struct ContentView_Previews: PreviewProvider {
+//    static var previezws: some View {
+//        ContentView()
+//    }
+//}
+#Preview {
+    ContentView()
 }
+//struct ArrayManagerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}
