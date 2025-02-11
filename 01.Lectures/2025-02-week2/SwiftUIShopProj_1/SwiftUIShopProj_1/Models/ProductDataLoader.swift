@@ -1,3 +1,11 @@
+//
+//  ProductDataLoader.swift
+//  SwiftUIShopProj_1
+//
+//  Created by Uihyun.Lee on 2/11/25.
+//
+
+
 import Foundation
 
 class ProductDataLoader: ObservableObject {
