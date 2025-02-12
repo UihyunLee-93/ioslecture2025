@@ -7,9 +7,30 @@
 
 import SwiftUI
 
-struct BindToggleEx: View {
+struct ParentView: View {
+    @State var isOn = false
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("isOn: \(isOn)")
+        ToggleView(isOn: $isOn)
+    }
+}
+
+struct ToggleView: View {
+    @Binding var isOn: Bool
+    var body: some View {
+        VStack{
+            
+            Toggle("IsOn", isOn: $isOn)
+        }
+        .padding()
+    }
+}
+
+struct BindToggleEx: View {
+    
+    var body: some View {
+        ParentView()
+        
     }
 }
 

@@ -7,12 +7,31 @@
 
 import SwiftUI
 
-struct ObservedobjectEx: View {
+class CntClass : ObservableObject {
+    @Published var count: Int
+    
+    init(count: Int =  0) {
+        self.count = count
+    }
+}
+struct ObservedobjectExView: View {
+    @ObservedObject var cntObj: CntClass = CntClass()
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("ObservedobjectExView")
+                .font(.title)
+                .padding()
+            Text("Count: \(cntObj.count)")
+            Button("증가하기"){
+                print("증가하기 버튼 탭")
+                cntObj.count += 1
+                print(cntObj.count)
+            }
+            .padding()
+        }
     }
 }
 
 #Preview {
-    ObservedobjectEx()
+    ObservedobjectExView()
 }
