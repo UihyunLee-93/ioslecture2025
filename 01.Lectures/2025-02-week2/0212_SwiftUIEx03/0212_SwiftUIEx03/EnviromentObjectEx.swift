@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+//사용자정보
+
+//앱 설정 정보
 
 struct EnviromentObjectEx: View {
     var body: some View {
