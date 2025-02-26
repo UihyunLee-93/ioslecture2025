@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_3" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="UIkit0226_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="4hZ-by-tIg">
+                                <rect key="frame" x="50" y="162" width="300" height="227.33333333333337"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TwN-HM-Mg4">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="전체화면 모달"/>
+                                        <connections>
+                                            <action selector="showModal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5kr-AP-auk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Pn-Op-KPd">
+                                        <rect key="frame" x="0.0" y="64.333333333333343" width="300" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="카드형 시트"/>
+                                        <connections>
+                                            <action selector="showModal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dLv-dN-uPJ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2K-U3-ky6">
+                                        <rect key="frame" x="0.0" y="128.66666666666669" width="300" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="폼 시트"/>
+                                        <connections>
+                                            <action selector="showModal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tm3-5V-6MC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1G-a9-lHb">
+                                        <rect key="frame" x="0.0" y="193" width="300" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="팝오버(iPad)"/>
+                                        <connections>
+                                            <action selector="showModal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L8E-5m-31W"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="wkc-3j-oTY"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="4hZ-by-tIg" secondAttribute="trailing" constant="50" id="Rnl-gR-I1B"/>
+                            <constraint firstItem="4hZ-by-tIg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="W9I-RT-wfi"/>
+                            <constraint firstItem="4hZ-by-tIg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="fG2-oW-boc"/>
+                            <constraint firstItem="4hZ-by-tIg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vaE-b9-TDg"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btn1" destination="TwN-HM-Mg4" id="Z6w-7f-zfa"/>
+                        <outlet property="btn2" destination="2Pn-Op-KPd" id="3YL-Ry-apX"/>
+                        <outlet property="btn3" destination="c2K-U3-ky6" id="tVS-xk-2Su"/>
+                        <outlet property="btn4" destination="e1G-a9-lHb" id="Jkb-eG-rsx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="55" y="-34"/>
+        </scene>
+        <!--Modal View Controller-->
+        <scene sceneID="hDg-pd-SnK">
+            <objects>
+                <viewController storyboardIdentifier="ModalViewController" id="ATT-2h-t1j" customClass="ModalViewController" customModule="UIkit0226_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QKr-UG-8KO">
+                        <rect key="frame" x="0.0" y="0.0" width="402" height="874"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="UBa-4q-XqR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X6C-Gu-tLG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="766" y="-35"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

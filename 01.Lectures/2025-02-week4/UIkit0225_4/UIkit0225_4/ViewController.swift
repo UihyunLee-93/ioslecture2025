@@ -49,8 +49,7 @@ class ViewController: UIViewController {
             imgView.image = imgArray[currentIndex]
         
         imgNum.text = "사진 : \(currentIndex + 1)"
-        
-        
+
             //이미지를 전환할때 배열index에 따라 버튼 활성 및 비활성
             btnPrev.isEnabled = (currentIndex != 0)
             btnNext.isEnabled = (currentIndex != imgArray.count - 1)
