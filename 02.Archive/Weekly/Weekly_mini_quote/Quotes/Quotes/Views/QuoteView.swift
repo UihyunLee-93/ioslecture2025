@@ -85,15 +85,15 @@ struct QuoteView: View {
                     Button {
                         Task {
                             translatedText = nil
-                            isTranslating = true  // ✅ 번역 중 상태 시작
-
+                            isTranslating = true
+                            
                             await vm.getData(for: show)
-
+                            
                             let quoteText = vm.quote.quote
                             vm.translateWithAlan(quoteText) { result in
                                 DispatchQueue.main.async {
                                     translatedText = result
-                                    isTranslating = false  // ✅ 번역 완료
+                                    isTranslating = false
                                 }
                             }
                         }

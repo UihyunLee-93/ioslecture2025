@@ -10,22 +10,9 @@
 		5EDC7A402DC9DE8900D45CB4 /* Quotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		5ED0717A2DCADF4200758528 /* Exceptions for "Quotes" folder in "Quotes" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				ViewModel/Info.plist,
-			);
-			target = 5EDC7A3F2DC9DE8900D45CB4 /* Quotes */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		5EDC7A422DC9DE8900D45CB4 /* Quotes */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				5ED0717A2DCADF4200758528 /* Exceptions for "Quotes" folder in "Quotes" target */,
-			);
 			path = Quotes;
 			sourceTree = "<group>";
 		};

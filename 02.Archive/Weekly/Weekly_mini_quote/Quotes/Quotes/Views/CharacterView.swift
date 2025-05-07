@@ -86,15 +86,15 @@ struct CharacterView: View {
                             .frame(maxWidth: .infinity,alignment: .leading)
                         }
                         .tint(.primary)
-                       
-                            
+                        
+                        
                     }
                     .frame(width: geo.size.width/1.25,alignment:.leading)
                 }
                 .scrollIndicators(.hidden)
-               
                 
-               
+                
+                
             }
             
         }

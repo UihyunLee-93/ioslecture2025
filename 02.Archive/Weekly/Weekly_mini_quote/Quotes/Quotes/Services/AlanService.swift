@@ -1,11 +1,3 @@
-//
-//  AlanService.swift
-//  Quotes
-//
-//  Created by Uihyun.Lee on 5/7/25.
-//
-
-
 import Foundation
 
 class AlanService {

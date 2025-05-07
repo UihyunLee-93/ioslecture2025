@@ -45,15 +45,15 @@ class ViewModel {
         아래 영어 문장을 자연스럽고 완전한 한국어로 번역해줘. 영어로 대답하지 말고, 무조건 한국어 번역만 해줘.
         문장: \(text)
         """
-
+        
         print("Alan에 보낸 번역 요청: \(prompt)")
-
+        
         AlanService.shared.sendCommand(prompt) { result in
             print("Alan 번역 응답: \(result ?? "없음")")
             completion(result)
         }
     }
-
+    
     
     
     
