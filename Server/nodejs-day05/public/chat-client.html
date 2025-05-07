@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>채팅방</h1>
+    <input
+      id="newMessage"
+      type="text"
+      name="newMessage"
+      value="새 메세지 입력"
+    />
+    <button id="sendBtn">메세지 전송</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var sendBtn = document.getElementById("sendBtn");
+      //sendBtn.addEventListener("click", function (event) {});
+      var newMessage = document.getElementById("newMessage");
+
+      var socket = io(); // 서버 소켓과 연결 됨.
+      socket.on("connect", (data) => {
+        console.log("서버 소켓과 연결되었습니다!"); // 브라우저의 인스펙터(개발자 도구 F12)에서 보여짐.
+
+        socket.on("welcome message", function (data) {
+          console.log("서버 소켓에서 보낸 메세지: ", data);
+        });
+      });
+
+      sendBtn.onclick = function (event) {
+        if (socket) {
+          socket.emit("message", newMessage.value);
+        } else {
+          alert("Error: 서버 소켓이 연결 되어 있지 않습니다!");
+        }
+      };
+    </script>
+  </body>
+</html>

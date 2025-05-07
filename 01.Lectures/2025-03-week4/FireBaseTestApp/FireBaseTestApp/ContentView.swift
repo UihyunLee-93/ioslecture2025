@@ -97,7 +97,7 @@ struct ContentView: View {
             
             .frame(width: 350)
             .onAppear {
-                try? Auth.auth().signOut() // <- 이 줄 추가
+                try? Auth.auth().signOut() 
                 Auth.auth().addStateDidChangeListener { auth, user in
                     if user != nil {
                         isLoggedIn.toggle()

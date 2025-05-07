@@ -15,6 +15,7 @@ struct NewAppleView: View {
             TextField("Apple", text: $newApple)
             Button {
                 dataManager.addApple(name: newApple)
+                dataManager.fetchApples()
             }label: {
                 Text("Save")
             }
